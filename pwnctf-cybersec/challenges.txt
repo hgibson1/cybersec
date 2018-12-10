@@ -1,0 +1,10 @@
+Stenography
+-Basic Steg: FLAG{lel_string_and_grep}
+$ cat basic.png
+
+-Cherry Twist:
+
+-Beautify eyes: FLAG{hidding_Stuff_in_stuff}
+strings how_to_solder.jpg -> shows flag.txt file 
+binwalk -Me how_to_solder.jpg -> extracts hidden files including flag.txt
+look at flag.txt to get flag
