@@ -1,0 +1,171 @@
+'2019-09-03T23:33:38Z UTC [ db=dev user=rdsdb pid=12182 userid=1 xid=1014 ]' LOG: SET query_group to 'xen_is_up.sql'
+'2019-09-03T23:33:38Z UTC [ db=dev user=rdsdb pid=12182 userid=1 xid=1015 ]' LOG: set statement_timeout to 0;
+'2019-09-03T23:33:38Z UTC [ db=dev user=rdsdb pid=12182 userid=1 xid=1016 ]' LOG: set query_group to 'health';
+'2019-09-03T23:33:38Z UTC [ db=dev user=rdsdb pid=12182 userid=1 xid=1017 ]' LOG: select system_status from stv_gui_status;
+'2019-09-03T23:33:38Z UTC [ db=dev user=rdsdb pid=12182 userid=1 xid=1017 ]' LOG: SELECT pg_catalog.stv_gui_status.system_status AS system_status FROM pg_catalog.stv_gui_status;
+'2019-09-03T23:33:38Z UTC [ db=dev user=rdsdb pid=12208 userid=1 xid=1020 ]' LOG: SELECT d.datname as "Name",
+       u.usename as "Owner",
+       pg_catalog.pg_encoding_to_char(d.encoding) as "Encoding"
+FROM pg_catalog.pg_database d
+  LEFT JOIN pg_catalog.pg_user u ON d.datdba = u.usesysid
+ORDER BY 1;
+'2019-09-03T23:33:38Z UTC [ db=dev user=rdsdb pid=12208 userid=1 xid=1021 ]' LOG: SET query_group to ''
+'2019-09-03T23:33:38Z UTC [ db=dev user=rdsdb pid=12216 userid=1 xid=1024 ]' LOG: SELECT d.datname as "Name",
+       u.usename as "Owner",
+       pg_catalog.pg_encoding_to_char(d.encoding) as "Encoding"
+FROM pg_catalog.pg_database d
+  LEFT JOIN pg_catalog.pg_user u ON d.datdba = u.usesysid
+ORDER BY 1;
+'2019-09-03T23:33:38Z UTC [ db=dev user=rdsdb pid=12216 userid=1 xid=1025 ]' LOG: SET query_group to ''
+'2019-09-03T23:33:38Z UTC [ db=dev user=rdsdb pid=12182 userid=1 xid=1028 ]' LOG: SET query_group to ''
+'2019-09-03T23:33:38Z UTC [ db=dev user=rdsdb pid=12259 userid=1 xid=1030 ]' LOG: xpx 'burst_release_all Startup';
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12273 userid=1 xid=1032 ]' LOG: SET QUERY_GROUP TO 'metrics'
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12273 userid=1 xid=1033 ]' LOG: SELECT 1
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12274 userid=1 xid=1035 ]' LOG: SET QUERY_GROUP TO 'metrics'
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12274 userid=1 xid=1036 ]' LOG: SELECT 1
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12274 userid=1 xid=1037 ]' LOG: SET statement_timeout TO 300000
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12274 userid=1 xid=1038 ]' LOG: ALTER USER "rdsdb" WITH PASSWORD '***' VALID UNTIL 'infinity'
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12276 userid=1 xid=1040 ]' LOG: SET QUERY_GROUP TO 'health'
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12276 userid=1 xid=1041 ]' LOG: SELECT 1
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12277 userid=1 xid=1043 ]' LOG: SET QUERY_GROUP TO 'health'
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12277 userid=1 xid=1044 ]' LOG: SELECT 1
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12277 userid=1 xid=1045 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12277 userid=1 xid=1046 ]' LOG: select 'ConnectionCheckQuery'
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12279 userid=1 xid=1048 ]' LOG: SET QUERY_GROUP TO 'cmstats'
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12279 userid=1 xid=1049 ]' LOG: SELECT 1
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12280 userid=1 xid=1051 ]' LOG: SET QUERY_GROUP TO 'cmstats'
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12280 userid=1 xid=1052 ]' LOG: SELECT 1
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12280 userid=1 xid=1053 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12280 userid=1 xid=1054 ]' LOG: SELECT 1 FROM pg_user WHERE usename = $1
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12280 userid=1 xid=1055 ]' LOG: SELECT 1
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12280 userid=1 xid=1056 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12280 userid=1 xid=1057 ]' LOG: CREATE USER "master_user" WITH PASSWORD '***' createuser createdb
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12280 userid=1 xid=1058 ]' LOG: SELECT 1
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12280 userid=1 xid=1059 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12280 userid=1 xid=1060 ]' LOG: SELECT 1 FROM pg_user WHERE usename = $1
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12280 userid=1 xid=1061 ]' LOG: SELECT 1
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12280 userid=1 xid=1062 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12280 userid=1 xid=1063 ]' LOG: SELECT 1 FROM pg_database WHERE datname = $1
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12277 userid=1 xid=1064 ]' LOG: SELECT 1
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12277 userid=1 xid=1065 ]' LOG: SET statement_timeout TO 45000
+'2019-09-03T23:33:39Z UTC [ db=dev user=rdsdb pid=12277 userid=1 xid=1066 ]' LOG: SELECT 1
+'2019-09-03T23:33:48Z UTC [ db=dev user=rdsdb pid=12312 userid=1 xid=1068 ]' LOG: SET QUERY_GROUP TO 'health'
+'2019-09-03T23:33:48Z UTC [ db=dev user=rdsdb pid=12312 userid=1 xid=1069 ]' LOG: SELECT 1
+'2019-09-03T23:33:48Z UTC [ db=dev user=rdsdb pid=12313 userid=1 xid=1071 ]' LOG: SET QUERY_GROUP TO 'health'
+'2019-09-03T23:33:48Z UTC [ db=dev user=rdsdb pid=12313 userid=1 xid=1072 ]' LOG: SELECT 1
+'2019-09-03T23:33:48Z UTC [ db=dev user=rdsdb pid=12313 userid=1 xid=1073 ]' LOG: BEGIN
+'2019-09-03T23:33:48Z UTC [ db=dev user=rdsdb pid=12313 userid=1 xid=1073 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:33:48Z UTC [ db=dev user=rdsdb pid=12313 userid=1 xid=1073 ]' LOG: select table_name from information_schema.tables where table_schema = 'pg_internal' and table_name = $1
+'2019-09-03T23:33:48Z UTC [ db=dev user=rdsdb pid=12313 userid=1 xid=1073 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:33:48Z UTC [ db=dev user=rdsdb pid=12313 userid=1 xid=1073 ]' LOG: create table pg_internal.redshift_auto_health_check_756659(a INT) diststyle even
+'2019-09-03T23:33:48Z UTC [ db=dev user=rdsdb pid=12313 userid=1 xid=1073 ]' LOG: COMMIT
+'2019-09-03T23:35:04Z UTC [ db=dev user=rdsdb pid=12930 userid=1 xid=1083 ]' LOG: SET QUERY_GROUP TO 'health'
+'2019-09-03T23:35:04Z UTC [ db=dev user=rdsdb pid=12930 userid=1 xid=1084 ]' LOG: SELECT 1
+'2019-09-03T23:35:04Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1086 ]' LOG: SET QUERY_GROUP TO 'health'
+'2019-09-03T23:35:04Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1087 ]' LOG: SELECT 1
+'2019-09-03T23:35:04Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1088 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:35:04Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1089 ]' LOG: select 'ConnectionCheckQuery'
+'2019-09-03T23:35:05Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1090 ]' LOG: SELECT 1
+'2019-09-03T23:35:05Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1091 ]' LOG: SET statement_timeout TO 45000
+'2019-09-03T23:35:05Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1092 ]' LOG: SELECT 1
+'2019-09-03T23:35:10Z UTC [ db=dev user=rdsdb pid=12936 userid=1 xid=1094 ]' LOG: SET QUERY_GROUP TO 'health'
+'2019-09-03T23:35:10Z UTC [ db=dev user=rdsdb pid=12936 userid=1 xid=1095 ]' LOG: SELECT 1
+'2019-09-03T23:35:10Z UTC [ db=dev user=rdsdb pid=12937 userid=1 xid=1097 ]' LOG: SET QUERY_GROUP TO 'health'
+'2019-09-03T23:35:10Z UTC [ db=dev user=rdsdb pid=12937 userid=1 xid=1098 ]' LOG: SELECT 1
+'2019-09-03T23:35:10Z UTC [ db=dev user=rdsdb pid=12937 userid=1 xid=1099 ]' LOG: SET statement_timeout TO 300000
+'2019-09-03T23:35:10Z UTC [ db=dev user=rdsdb pid=12937 userid=1 xid=1100 ]' LOG: Select * from pg_internal.redshift_auto_health_check_756659
+'2019-09-03T23:35:10Z UTC [ db=dev user=rdsdb pid=12937 userid=1 xid=1100 ]' LOG: SELECT pg_internal.redshift_auto_health_check_756659.a AS a FROM pg_internal.redshift_auto_health_check_756659;
+'2019-09-03T23:35:27Z UTC [ db=dev user=rdsdb pid=12965 userid=1 xid=1102 ]' LOG: SET QUERY_GROUP TO 'metrics'
+'2019-09-03T23:35:27Z UTC [ db=dev user=rdsdb pid=12965 userid=1 xid=1103 ]' LOG: SELECT 1
+'2019-09-03T23:35:27Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1105 ]' LOG: SET QUERY_GROUP TO 'metrics'
+'2019-09-03T23:35:27Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1106 ]' LOG: SELECT 1
+'2019-09-03T23:35:27Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1107 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:35:27Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1108 ]' LOG: select count(distinct id) from pg_catalog.stv_tbl_perm where temp = false and db_id > 1 and id not in (select oid from pg_class where relname like 'redshift_auto_health_check_%' and relnamespace in (select oid from pg_namespace where nspname='pg_internal'))
+'2019-09-03T23:35:27Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1108 ]' LOG: SELECT COUNT(volt_dt_0.id) AS count FROM (SELECT pg_catalog.stv_tbl_perm.id AS count FROM pg_catalog.stv_tbl_perm WHERE pg_catalog.stv_tbl_perm.temp = (0=1) AND pg_catalog.stv_tbl_perm.db_id > 1 AND CAST(pg_catalog.stv_tbl_perm.id AS Int8) NOT IN (SELECT pg_catalog.pg_class.oid AS oid FROM pg_catalog.pg_class WHERE pg_catalog.pg_class.relnamespace IN (SELECT pg_catalog.pg_namespace.oid AS oid FROM pg_catalog.pg_namespace WHERE pg_catalog.pg_namespace.nspname = 'pg_internal'::Char(11)) AND pg_catalog.pg_class.relname LIKE 'redshift_auto_health_check_%') GROUP BY 1) AS volt_dt_0(id);
+'2019-09-03T23:35:28Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1109 ]' LOG: SELECT 1
+'2019-09-03T23:35:28Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1110 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:35:28Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1111 ]' LOG: select node_num,value from stv_fdisk_stats where name='blocks_allocated_total'
+'2019-09-03T23:35:28Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1111 ]' LOG: SELECT pg_catalog.stv_fdisk_stats.node_num AS node_num, pg_catalog.stv_fdisk_stats.value AS value FROM pg_catalog.stv_fdisk_stats WHERE pg_catalog.stv_fdisk_stats.name = 'blocks_allocated_total'::Char(22);
+'2019-09-03T23:35:43Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1112 ]' LOG: SELECT 1
+'2019-09-03T23:35:43Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1113 ]' LOG: SET statement_timeout TO 300000
+'2019-09-03T23:35:43Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1114 ]' LOG: select backup_id,starttime,currenttime,sb_version,in_progress,error_code,error_msg,enc_key_hash_base64 from STL_BACKUP_LEADER where (BACKUP_ID, CURRENTTIME) in  ( select BACKUP_ID, max(CURRENTTIME) from STL_BACKUP_LEADER group by BACKUP_ID having max(CURRENTTIME) > $1 )  order by CURRENTTIME asc
+'2019-09-03T23:35:43Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1114 ]' LOG: SELECT pg_catalog.stl_backup_leader.backup_id AS backup_id, pg_catalog.stl_backup_leader.starttime AS starttime, pg_catalog.stl_backup_leader.currenttime AS currenttime, pg_catalog.stl_backup_leader.sb_version AS sb_version, pg_catalog.stl_backup_leader.in_progress AS in_progress, pg_catalog.stl_backup_leader.error_code AS error_code, pg_catalog.stl_backup_leader.error_msg AS error_msg, pg_catalog.stl_backup_leader.enc_key_hash_base64 AS enc_key_hash_base64 FROM pg_catalog.stl_backup_leader WHERE (pg_catalog.stl_backup_leader.backup_id, pg_catalog.stl_backup_leader.currenttime) IN (SELECT pg_catalog.stl_backup_leader.backup_id AS backup_id, MAX(pg_catalog.stl_backup_leader.currenttime) AS max FROM pg_catalog.stl_backup_leader GROUP BY 1 HAVING MAX(pg_catalog.stl_backup_leader.currenttime) > $1) ORDER BY 3 ASC;
+'2019-09-03T23:35:43Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1114 ]' LOG: SELECT pg_catalog.stl_backup_leader.backup_id AS backup_id, pg_catalog.stl_backup_leader.starttime AS starttime, pg_catalog.stl_backup_leader.currenttime AS currenttime, pg_catalog.stl_backup_leader.sb_version AS sb_version, pg_catalog.stl_backup_leader.in_progress AS in_progress, pg_catalog.stl_backup_leader.error_code AS error_code, pg_catalog.stl_backup_leader.error_msg AS error_msg, pg_catalog.stl_backup_leader.enc_key_hash_base64 AS enc_key_hash_base64 FROM pg_catalog.stl_backup_leader WHERE (pg_catalog.stl_backup_leader.backup_id, pg_catalog.stl_backup_leader.currenttime) IN (SELECT pg_catalog.stl_backup_leader.backup_id AS backup_id, MAX(pg_catalog.stl_backup_leader.currenttime) AS max FROM pg_catalog.stl_backup_leader GROUP BY 1 HAVING MAX(pg_catalog.stl_backup_leader.currenttime) > $1) ORDER BY 3 ASC;
+'2019-09-03T23:36:03Z UTC [ db=dev user=rdsdb pid=12937 userid=1 xid=1115 ]' LOG: SELECT 1
+'2019-09-03T23:36:03Z UTC [ db=dev user=rdsdb pid=12937 userid=1 xid=1116 ]' LOG: BEGIN
+'2019-09-03T23:36:03Z UTC [ db=dev user=rdsdb pid=12937 userid=1 xid=1116 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:36:03Z UTC [ db=dev user=rdsdb pid=12937 userid=1 xid=1116 ]' LOG: select table_name from information_schema.tables where table_schema = 'pg_internal' and table_name = $1
+'2019-09-03T23:36:03Z UTC [ db=dev user=rdsdb pid=12937 userid=1 xid=1116 ]' LOG: COMMIT
+'2019-09-03T23:36:05Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1117 ]' LOG: SELECT 1
+'2019-09-03T23:36:05Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1118 ]' LOG: SET statement_timeout TO 45000
+'2019-09-03T23:36:05Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1119 ]' LOG: SELECT 1
+'2019-09-03T23:36:08Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1120 ]' LOG: SELECT 1
+'2019-09-03T23:36:08Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1121 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:36:08Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1122 ]' LOG: select 'ConnectionCheckQuery'
+'2019-09-03T23:36:08Z UTC [ db=dev user=rdsdb pid=13027 userid=1 xid=1124 ]' LOG: SET QUERY_GROUP TO 'metrics'
+'2019-09-03T23:36:08Z UTC [ db=dev user=rdsdb pid=13027 userid=1 xid=1125 ]' LOG: SELECT 1
+'2019-09-03T23:36:08Z UTC [ db=dev user=rdsdb pid=13028 userid=1 xid=1127 ]' LOG: SET QUERY_GROUP TO 'metrics'
+'2019-09-03T23:36:08Z UTC [ db=dev user=rdsdb pid=13028 userid=1 xid=1128 ]' LOG: SELECT 1
+'2019-09-03T23:36:08Z UTC [ db=dev user=rdsdb pid=13028 userid=1 xid=1129 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:36:08Z UTC [ db=dev user=rdsdb pid=13028 userid=1 xid=1130 ]' LOG: select node_num,name,value from stv_fdisk_stats where name = 'blocks_rerepped_since_commit' or name = 'blocks_left_to_rerep' or name = 'seconds_since_last_commit'
+'2019-09-03T23:36:08Z UTC [ db=dev user=rdsdb pid=13028 userid=1 xid=1130 ]' LOG: SELECT pg_catalog.stv_fdisk_stats.node_num AS node_num, pg_catalog.stv_fdisk_stats.name AS name, pg_catalog.stv_fdisk_stats.value AS value FROM pg_catalog.stv_fdisk_stats WHERE pg_catalog.stv_fdisk_stats.name IN ('blocks_left_to_rerep'::Char(20), 'blocks_rerepped_since_commit'::Char(28), 'seconds_since_last_commit'::Char(25));
+'2019-09-03T23:36:10Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1131 ]' LOG: SELECT 1
+'2019-09-03T23:36:10Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1132 ]' LOG: SET statement_timeout TO 120000
+'2019-09-03T23:36:10Z UTC [ db=dev user=rdsdb pid=12931 userid=1 xid=1133 ]' LOG: select 'ConnectionCheckQuery'
+'2019-09-03T23:36:10Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1134 ]' LOG: SELECT 1
+'2019-09-03T23:36:10Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1135 ]' LOG: SET statement_timeout TO 300000
+'2019-09-03T23:36:10Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1136 ]' LOG: select backup_id,starttime,currenttime,sb_version,in_progress,error_code,error_msg,enc_key_hash_base64 from STL_BACKUP_LEADER where (BACKUP_ID, CURRENTTIME) in  ( select BACKUP_ID, max(CURRENTTIME) from STL_BACKUP_LEADER group by BACKUP_ID having max(CURRENTTIME) > $1 )  order by CURRENTTIME asc
+'2019-09-03T23:36:10Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1136 ]' LOG: SELECT pg_catalog.stl_backup_leader.backup_id AS backup_id, pg_catalog.stl_backup_leader.starttime AS starttime, pg_catalog.stl_backup_leader.currenttime AS currenttime, pg_catalog.stl_backup_leader.sb_version AS sb_version, pg_catalog.stl_backup_leader.in_progress AS in_progress, pg_catalog.stl_backup_leader.error_code AS error_code, pg_catalog.stl_backup_leader.error_msg AS error_msg, pg_catalog.stl_backup_leader.enc_key_hash_base64 AS enc_key_hash_base64 FROM pg_catalog.stl_backup_leader WHERE (pg_catalog.stl_backup_leader.backup_id, pg_catalog.stl_backup_leader.currenttime) IN (SELECT pg_catalog.stl_backup_leader.backup_id AS backup_id, MAX(pg_catalog.stl_backup_leader.currenttime) AS max FROM pg_catalog.stl_backup_leader GROUP BY 1 HAVING MAX(pg_catalog.stl_backup_leader.currenttime) > $1) ORDER BY 3 ASC;
+'2019-09-03T23:36:10Z UTC [ db=dev user=rdsdb pid=12966 userid=1 xid=1136 ]' LOG: SELECT pg_catalog.stl_backup_leader.backup_id AS backup_id, pg_catalog.stl_backup_leader.starttime AS starttime, pg_catalog.stl_backup_leader.currenttime AS currenttime, pg_catalog.stl_backup_leader.sb_version AS sb_version, pg_catalog.stl_backup_leader.in_progress AS in_progress, pg_catalog.stl_backup_leader.error_code AS error_code, pg_catalog.stl_backup_leader.error_msg AS error_msg, pg_catalog.stl_backup_leader.enc_key_hash_base64 AS enc_key_hash_base64 FROM pg_catalog.stl_backup_leader WHERE (pg_catalog.stl_backup_leader.backup_id, pg_catalog.stl_backup_leader.currenttime) IN (SELECT pg_catalog.stl_backup_leader.backup_id AS backup_id, MAX(pg_catalog.stl_backup_leader.currenttime) AS max FROM pg_catalog.stl_backup_leader GROUP BY 1 HAVING MAX(pg_catalog.stl_backup_leader.currenttime) > $1) ORDER BY 3 ASC;
+'2019-09-03T23:39:38Z UTC [ db=dev user=joe pid=12208 userid=105 xid=1144 ]' LOG: select col, count(*)
+from stv_blocklist s, pg_class p
+where s.tbl=p.oid and relname='users'
+group by col
+order by col;
+'2019-09-03T23:39:38Z UTC [ db=dev user=joe pid=12208 userid=105 xid=1144 ]' LOG: create view tables_vw as
+    select distinct(id) table_id
+        ,trim(datname)   db_name
+        ,trim(nspname)   schema_name
+        ,trim(relname)   table_name
+    from stv_tbl_perm
+        join pg_class on pg_class.oid = stv_tbl_perm.id
+        join pg_namespace on pg_namespace.oid = relnamespace
+        join pg_database on pg_database.oid = stv_tbl_perm.db_id;
+'2019-09-03T23:39:38Z UTC [ db=dev user=joe pid=12208 userid=105 xid=1144 ]' LOG: select nspname, relname, max(attnum) as num_cols
+from pg_attribute a, pg_namespace n, pg_class c
+where n.oid = c.relnamespace and  a.attrelid = c.oid
+    and c.relname not like '%pkey'
+    and n.nspname not like 'pg%'
+    and n.nspname not like 'information%'
+group by 1, 2
+order by 1, 2;
+'2019-09-03T23:39:38Z UTC [ db=dev user=joe pid=12208 userid=105 xid=1144 ]' LOG: select nspname, relname, max(attnum) as num_cols
+from pg_attribute a, pg_namespace n, pg_class c
+where n.oid = c.relnamespace and  a.attrelid = c.oid
+    and c.relname not like '%pkey'
+    and n.nspname not like 'pg%'
+    and n.nspname not like 'information%'
+group by 1, 2
+order by 1, 2;
+'2019-09-03T23:39:38Z UTC [ db=dev user=joe pid=12208 userid=105 xid=1144 ]' LOG: select nspname, relname, max(attnum) as num_cols
+from pg_attribute a, pg_namespace n, pg_class c
+where n.oid = c.relnamespace and  a.attrelid = c.oid
+    and c.relname not like '%pkey'
+    and n.nspname not like 'pg%'
+    and n.nspname not like 'information%'
+group by 1, 2
+order by 1, 2;
+'2019-09-03T23:39:38Z UTC [ db=dev user=joe pid=12208 userid=105 xid=1144 ]' LOG: select col, count(*)
+from stv_blocklist s, pg_class p
+where s.tbl=p.oid and relname='users'
+group by col
+order by col;
+'2019-09-03T23:39:38Z UTC [ db=dev user=joe pid=12208 userid=105 xid=1144 ]' LOG: create view tables_vw as
+    select distinct(id) table_id
+        ,trim(datname)   db_name
+        ,trim(nspname)   schema_name
+        ,trim(relname)   table_name
+    from stv_tbl_perm
+        join pg_class on pg_class.oid = stv_tbl_perm.id
+        join pg_namespace on pg_namespace.oid = relnamespace
+        join pg_database on pg_database.oid = stv_tbl_perm.db_id;

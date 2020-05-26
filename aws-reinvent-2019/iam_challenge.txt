@@ -1,0 +1,522 @@
+Got Root:
+JamRole-EC2Admin (this role is used by you and your team to perform all high privilege EC2 actions)
+JamRole-S3Access (this role will be used by authorized teams for full S3 access)
+JamRole-ServerlessAdmin (this role gives the 3rd party serverless dev team access to typical serverless AWS Services, such as DynamoDB and Lambda)
+JamRole-EmergencyAdministration (full administrative access role in the account that might be assumed by the central CERT team)
+Other misc JamRoles used for Cross-Account-Access.
+Please ignore the following roles:
+EEOrganizations
+EEOverlordRole
+OpsRole
+You enter the account with the "TeamRole". Following the role concept, you should ONLY be able to assume the role "JamRole-EC2Admin“ and "JamRole-S3Access".
+
+With those roles, you should NOT be able assume any other roles!
+With those roles, you should NOT have full administrative access.
+
+Tasks
+You enter the account in the role "TeamRole". Assume the role "JamRole-EC2Admin" or "JamRole-S3Access" using the "Switch Role" feature!
+Evaluate each role and policy with the prefix "JamRole" from the perspective of the different roles you are allowed to assume.
+JameRole-EC2Admin:
+- Full access to all EC2, ELB v1/v2 EC2 Autoscaling, IAM
+- Allow STS assume role on all resources
+- Permissions boundary
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": "*",
+            "Resource": "*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "iam:DeletePolicy",
+                "iam:CreatePolicyVersion",
+                "iam:DeletePolicyVersion",
+                "iam:SetDefaultPolicyVersion",
+                "iam:CreateUser",
+                "iam:UpdateUser",
+                "iam:DeleteUser",
+                "iam:AddClientIDToOpenIDConnectProvider",
+                "iam:CreateAccessKey",
+                "iam:CreateAccountAlias",
+                "iam:CreateLoginProfile",
+                "iam:CreateOpenIDConnectProvider",
+                "iam:CreateSAMLProvider",
+                "iam:DeleteAccessKey",
+                "iam:DeleteAccountAlias",
+                "iam:DeleteAccountPasswordPolicy",
+                "iam:DeleteOpenIDConnectProvider",
+                "iam:DeleteSAMLProvider",
+                "iam:DeleteServerCertificate",
+                "iam:RemoveClientIDFromOpenIDConnectProvider",
+                "iam:UpdateAccountPasswordPolicy",
+                "iam:UpdateLoginProfile",
+                "iam:UpdateSAMLProvider",
+                "iam:UpdateServerCertificate",
+                "iam:UpdateOpenIDConnectProviderThumbprint",
+                "iam:AttachUserPolicy",
+                "iam:DetachUserPolicy",
+                "iam:DeleteUserPolicy",
+                "iam:PutUserPolicy",
+                "iam:DeleteUserPermissionsBoundary",
+                "iam:PutUserPermissionsBoundary",
+                "iam:AttachRolePolicy",
+                "iam:DeleteRole",
+                "iam:DeleteRolePermissionsBoundary",
+                "iam:DeleteRolePolicy",
+                "iam:DetachRolePolicy",
+                "iam:PutRolePermissionsBoundary",
+                "iam:PutRolePolicy",
+                "iam:UpdateRole",
+                "iam:UpdateRoleDescription"
+            ],
+            "Resource": "*",
+            "Effect": "Deny"
+        }
+```
+- Assume role: Allows the root account to assume role
+JamRole-S3Access:
+- Can't view/list roles
+- Can access all s3 resources
+- No permissions boundary
+- Can be assumed by root 
+JamRole-EmergencyAdministration:
+- Full admin access *
+- No permissions boundary
+- Trusts root in account 339644790936 if external id jf849thgus0e938fhdjsozfghu3
+JamRole-SecurityReadOnly:
+- Permissions
+```
+  "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Resource": "*",
+            "Action": [
+                "acm:Describe*",
+                "acm:List*",
+                "application-autoscaling:Describe*",
+                "appmesh:Describe*",
+                "appmesh:List*",
+                "appsync:List*",
+                "athena:List*",
+                "autoscaling:Describe*",
+                "batch:DescribeComputeEnvironments",
+                "batch:DescribeJobDefinitions",
+                "chime:List*",
+                "cloud9:Describe*",
+                "cloud9:ListEnvironments",
+                "clouddirectory:ListDirectories",
+                "cloudformation:DescribeStack*",
+                "cloudformation:GetTemplate",
+                "cloudformation:ListStack*",
+                "cloudformation:GetStackPolicy",
+                "cloudfront:Get*",
+                "cloudfront:List*",
+                "cloudhsm:ListHapgs",
+                "cloudhsm:ListHsms",
+                "cloudhsm:ListLunaClients",
+                "cloudsearch:DescribeDomains",
+                "cloudsearch:DescribeServiceAccessPolicies",
+                "cloudtrail:DescribeTrails",
+                "cloudtrail:GetEventSelectors",
+                "cloudtrail:GetTrailStatus",
+                "cloudtrail:ListTags",
+                "cloudtrail:LookupEvents",
+                "cloudwatch:Describe*",
+                "codebuild:ListProjects",
+                "codecommit:BatchGetRepositories",
+                "codecommit:GetBranch",
+                "codecommit:GetObjectIdentifier",
+                "codecommit:GetRepository",
+                "codecommit:List*",
+                "codedeploy:Batch*",
+                "codedeploy:Get*",
+                "codedeploy:List*",
+                "codepipeline:ListPipelines",
+                "codestar:Describe*",
+                "codestar:List*",
+                "cognito-identity:ListIdentityPools",
+                "cognito-idp:ListUserPools",
+                "cognito-sync:Describe*",
+                "cognito-sync:List*",
+                "comprehend:Describe*",
+                "comprehend:List*",
+                "config:BatchGetAggregateResourceConfig",
+                "config:BatchGetResourceConfig",
+                "config:Deliver*",
+                "config:Describe*",
+                "config:Get*",
+                "config:List*",
+                "datapipeline:DescribeObjects",
+                "datapipeline:DescribePipelines",
+                "datapipeline:EvaluateExpression",
+                "datapipeline:GetPipelineDefinition",
+                "datapipeline:ListPipelines",
+                "datapipeline:QueryObjects",
+                "datapipeline:ValidatePipelineDefinition",
+                "datasync:Describe*",
+                "datasync:List*",
+                "dax:Describe*",
+                "dax:ListTags",
+                "directconnect:Describe*",
+                "dms:Describe*",
+                "dms:ListTagsForResource",
+                "ds:DescribeDirectories",
+                "dynamodb:DescribeContinuousBackups",
+                "dynamodb:DescribeGlobalTable",
+                "dynamodb:DescribeTable",
+                "dynamodb:DescribeTimeToLive",
+                "dynamodb:ListBackups",
+                "dynamodb:ListGlobalTables",
+                "dynamodb:ListStreams",
+                "dynamodb:ListTables",
+                "ec2:Describe*",
+                "ecr:DescribeRepositories",
+                "ecr:GetRepositoryPolicy",
+                "ecs:Describe*",
+                "ecs:List*",
+                "eks:DescribeCluster",
+                "eks:ListClusters",
+                "elasticache:Describe*",
+                "elasticbeanstalk:Describe*",
+                "elasticfilesystem:DescribeFileSystems",
+                "elasticfilesystem:DescribeMountTargetSecurityGroups",
+                "elasticfilesystem:DescribeMountTargets",
+                "elasticloadbalancing:Describe*",
+                "elasticmapreduce:Describe*",
+                "elasticmapreduce:ListClusters",
+                "elasticmapreduce:ListInstances",
+                "es:Describe*",
+                "es:ListDomainNames",
+                "events:Describe*",
+                "events:List*",
+                "firehose:Describe*",
+                "firehose:List*",
+                "fms:ListComplianceStatus",
+                "fms:ListPolicies",
+                "fsx:Describe*",
+                "fsx:List*",
+                "gamelift:ListBuilds",
+                "gamelift:ListFleets",
+                "glacier:DescribeVault",
+                "glacier:GetVaultAccessPolicy",
+                "glacier:ListVaults",
+                "globalaccelerator:Describe*",
+                "globalaccelerator:List*",
+                "greengrass:List*",
+                "guardduty:Get*",
+                "guardduty:List*",
+                "iam:GenerateCredentialReport",
+                "iam:GenerateServiceLastAccessedDetails",
+                "iam:Get*",
+                "iam:List*",
+                "iam:SimulateCustomPolicy",
+                "iam:SimulatePrincipalPolicy",
+                "inspector:Describe*",
+                "inspector:Get*",
+                "inspector:List*",
+                "inspector:Preview*",
+                "iot:Describe*",
+                "iot:GetPolicy",
+                "iot:GetPolicyVersion",
+                "iot:List*",
+                "kinesis:DescribeStream",
+                "kinesis:ListStreams",
+                "kinesis:ListTagsForStream",
+                "kinesisanalytics:ListApplications",
+                "kms:Describe*",
+                "kms:Get*",
+                "kms:List*",
+                "lambda:GetAccountSettings",
+                "lambda:GetFunctionConfiguration",
+                "lambda:GetLayerVersionPolicy",
+                "lambda:GetPolicy",
+                "lambda:List*",
+                "license-manager:List*",
+                "lightsail:GetInstances",
+                "lightsail:GetLoadBalancers",
+                "logs:Describe*",
+                "logs:ListTagsLogGroup",
+                "machinelearning:DescribeMLModels",
+                "mediaconnect:Describe*",
+                "mediaconnect:List*",
+                "mediastore:GetContainerPolicy",
+                "mediastore:ListContainers",
+                "opsworks:DescribeStacks",
+                "opsworks-cm:DescribeServers",
+                "organizations:List*",
+                "organizations:Describe*",
+                "quicksight:Describe*",
+                "quicksight:List*",
+                "ram:List*",
+                "rds:Describe*",
+                "rds:DownloadDBLogFilePortion",
+                "rds:ListTagsForResource",
+                "redshift:Describe*",
+                "rekognition:Describe*",
+                "rekognition:List*",
+                "robomaker:Describe*",
+                "robomaker:List*",
+                "route53:Get*",
+                "route53:List*",
+                "route53domains:GetDomainDetail",
+                "route53domains:GetOperationDetail",
+                "route53domains:ListDomains",
+                "route53domains:ListOperations",
+                "route53domains:ListTagsForDomain",
+                "route53resolver:List*",
+                "route53resolver:Get*",
+                "s3:GetAccelerateConfiguration",
+                "s3:GetAccountPublicAccessBlock",
+                "s3:GetAnalyticsConfiguration",
+                "s3:GetBucket*",
+                "s3:GetEncryptionConfiguration",
+                "s3:GetInventoryConfiguration",
+                "s3:GetLifecycleConfiguration",
+                "s3:GetMetricsConfiguration",
+                "s3:GetObjectAcl",
+                "s3:GetObjectVersionAcl",
+                "s3:GetReplicationConfiguration",
+                "s3:ListAllMyBuckets",
+                "sagemaker:Describe*",
+                "sagemaker:List*",
+                "sdb:DomainMetadata",
+                "sdb:ListDomains",
+                "secretsmanager:GetResourcePolicy",
+                "secretsmanager:ListSecrets",
+                "secretsmanager:ListSecretVersionIds",
+                "securityhub:Describe*",
+                "securityhub:Get*",
+                "securityhub:List*",
+                "serverlessrepo:GetApplicationPolicy",
+                "serverlessrepo:List*",
+                "ses:GetIdentityDkimAttributes",
+                "ses:GetIdentityPolicies",
+                "ses:GetIdentityVerificationAttributes",
+                "ses:ListIdentities",
+                "ses:ListIdentityPolicies",
+                "ses:ListVerifiedEmailAddresses",
+                "shield:Describe*",
+                "shield:List*",
+                "snowball:ListClusters",
+                "snowball:ListJobs",
+                "sns:GetTopicAttributes",
+                "sns:ListSubscriptionsByTopic",
+                "sns:ListTopics",
+                "sqs:GetQueueAttributes",
+                "sqs:ListDeadLetterSourceQueues",
+                "sqs:ListQueues",
+                "sqs:ListQueueTags",
+                "ssm:Describe*",
+                "ssm:GetAutomationExecution",
+                "ssm:ListDocuments",
+                "sso:DescribePermissionsPolicies",
+                "sso:List*",
+                "states:ListStateMachines",
+                "storagegateway:DescribeBandwidthRateLimit",
+                "storagegateway:DescribeCache",
+                "storagegateway:DescribeCachediSCSIVolumes",
+                "storagegateway:DescribeGatewayInformation",
+                "storagegateway:DescribeMaintenanceStartTime",
+                "storagegateway:DescribeNFSFileShares",
+                "storagegateway:DescribeSnapshotSchedule",
+                "storagegateway:DescribeStorediSCSIVolumes",
+                "storagegateway:DescribeTapeArchives",
+                "storagegateway:DescribeTapeRecoveryPoints",
+                "storagegateway:DescribeTapes",
+                "storagegateway:DescribeUploadBuffer",
+                "storagegateway:DescribeVTLDevices",
+                "storagegateway:DescribeWorkingStorage",
+                "storagegateway:List*",
+                "tag:GetResources",
+                "tag:GetTagKeys",
+                "transfer:Describe*",
+                "transfer:List*",
+                "translate:List*",
+                "trustedadvisor:Describe*",
+                "waf:ListWebACLs",
+                "waf-regional:ListWebACLs",
+                "workspaces:Describe*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "apigateway:GET"
+            ],
+            "Resource": [
+                "arn:aws:apigateway:*::/apis",
+                "arn:aws:apigateway:*::/apis/*/stages",
+                "arn:aws:apigateway:*::/apis/*/stages/*",
+                "arn:aws:apigateway:*::/apis/*/routes",
+                "arn:aws:apigateway:*::/restapis",
+                "arn:aws:apigateway:*::/restapis/*/authorizers",
+                "arn:aws:apigateway:*::/restapis/*/authorizers/*",
+                "arn:aws:apigateway:*::/restapis/*/documentation/versions",
+                "arn:aws:apigateway:*::/restapis/*/resources",
+                "arn:aws:apigateway:*::/restapis/*/resources/*",
+                "arn:aws:apigateway:*::/restapis/*/resources/*/methods/*",
+                "arn:aws:apigateway:*::/restapis/*/stages",
+                "arn:aws:apigateway:*::/restapis/*/stages/*",
+                "arn:aws:apigateway:*::/vpclinks"
+            ]
+        }
+    ]
+}
+```
+- No permissions boundary
+- Can be assumed by root in account 454516375319
+JamRole-ServerlessAdmin:
+- permissions
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "sts:AssumeRole"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "cloudformation:DescribeChangeSet",
+                "cloudformation:DescribeStackResources",
+                "cloudformation:DescribeStacks",
+                "cloudformation:GetTemplate",
+                "cloudformation:ListStackResources",
+                "cloudwatch:*",
+                "cognito-identity:ListIdentityPools",
+                "cognito-sync:GetCognitoEvents",
+                "cognito-sync:SetCognitoEvents",
+                "dynamodb:*",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeVpcs",
+                "events:*",
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetRole",
+                "iam:GetRolePolicy",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListRolePolicies",
+                "iam:ListRoles",
+                "iam:PassRole",
+                "iot:AttachPrincipalPolicy",
+                "iot:AttachThingPrincipal",
+                "iot:CreateKeysAndCertificate",
+                "iot:CreatePolicy",
+                "iot:CreateThing",
+                "iot:CreateTopicRule",
+                "iot:DescribeEndpoint",
+                "iot:GetTopicRule",
+                "iot:ListPolicies",
+                "iot:ListThings",
+                "iot:ListTopicRules",
+                "iot:ReplaceTopicRule",
+                "kinesis:DescribeStream",
+                "kinesis:ListStreams",
+                "kinesis:PutRecord",
+                "kms:ListAliases",
+                "lambda:*",
+                "logs:*",
+                "s3:*",
+                "sns:ListSubscriptions",
+                "sns:ListSubscriptionsByTopic",
+                "sns:ListTopics",
+                "sns:Publish",
+                "sns:Subscribe",
+                "sns:Unsubscribe",
+                "sqs:ListQueues",
+                "sqs:SendMessage",
+                "tag:GetResources",
+                "xray:PutTelemetryRecords",
+                "xray:PutTraceSegments-*"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "iam:*"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        }
+    ]
+}
+```
+- Can assume any role!
+- Can perform any iam operation
+- Permissions boundary
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": "*",
+            "Resource": "*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "iam:DeletePolicy",
+                "iam:CreatePolicyVersion",
+                "iam:DeletePolicyVersion",
+                "iam:SetDefaultPolicyVersion",
+                "iam:CreateUser",
+                "iam:UpdateUser",
+                "iam:DeleteUser",
+                "iam:AddClientIDToOpenIDConnectProvider",
+                "iam:CreateAccessKey",
+                "iam:CreateAccountAlias",
+                "iam:CreateLoginProfile",
+                "iam:CreateOpenIDConnectProvider",
+                "iam:CreateSAMLProvider",
+                "iam:DeleteAccessKey",
+                "iam:DeleteAccountAlias",
+                "iam:DeleteAccountPasswordPolicy",
+                "iam:DeleteOpenIDConnectProvider",
+                "iam:DeleteSAMLProvider",
+                "iam:DeleteServerCertificate",
+                "iam:RemoveClientIDFromOpenIDConnectProvider",
+                "iam:UpdateAccountPasswordPolicy",
+                "iam:UpdateLoginProfile",
+                "iam:UpdateSAMLProvider",
+                "iam:UpdateServerCertificate",
+                "iam:UpdateOpenIDConnectProviderThumbprint",
+                "iam:AttachUserPolicy",
+                "iam:DetachUserPolicy",
+                "iam:DeleteUserPolicy",
+                "iam:PutUserPolicy",
+                "iam:DeleteUserPermissionsBoundary",
+                "iam:PutUserPermissionsBoundary",
+                "iam:AttachRolePolicy",
+                "iam:DeleteRole",
+                "iam:DeleteRolePermissionsBoundary",
+                "iam:DeleteRolePolicy",
+                "iam:DetachRolePolicy",
+                "iam:PutRolePermissionsBoundary",
+                "iam:PutRolePolicy",
+                "iam:UpdateRole",
+                "iam:UpdateRoleDescription"
+            ],
+            "Resource": "*",
+            "Effect": "Deny"
+        }
+    ]
+}
+```
+- Trusts root account 063648784250
+
+Find the weakness in the IAM role concept that gives you full administrative access.
+
+EC2 admin allowed update trust policy, changed to allow root account assume role + assumed admin role
+
+Exploit the weakness. Execute the lambda function „getSecret“ as a proof of concept. The return value of the lambda function is the secret key for the solution.
+
+

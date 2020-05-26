@@ -1,0 +1,21 @@
+Someone accessed our quarterly earnings report in S3 and leaked it to the media. Luckily, we have object logging turned on.
+
+We've been able to narrow the leak down to sometime on September 3, 2019. Inspect the logs and find out who leaked the report.
+
+The answer is the name of the user who accessed the earning report data.
+
+S3 bucket name: mod-module-1-earningsreportbucket-1cco3huquiaw7
+
+Access trail name: mod-module-1-EarningsReportAccessTrail-FI00URKWZTKT
+
+Don't have permission to view events but can  look in logs bucket mod-module-1-s3objectlogsbucket-28y1q47yuwjx
+
+Downloaded oldest log - gonna take too long
+
+Look at cloudwatch -> nope no permission
+
+Enable cloudtrail insights, since role can view
+Need to give trail ability to log All or Write-only management events
+Can't modify trail settings
+
+
